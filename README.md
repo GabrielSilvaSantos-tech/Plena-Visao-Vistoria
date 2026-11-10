@@ -6,7 +6,7 @@
 | Nome Completo | RGM | GitHub |
 |---|---|---|
 | Gabriel da Silva Santos | 47256818 | [GabrielSilvaSantos-tech](https://github.com/GabrielSilvaSantos-tech) |
-| Gustavo Francisco dos Santos | A informar | A informar |
+| Gustavo Francisco dos Santos | 48250457 |[ Gustavofranciscodossanntos31-crypto](https://github.com/Gustavofranciscodossantos31-crypto) |
 | Henrique Constantino | 47219190 | [RiqueCosta27](https://github.com/RiqueCosta27) |
 | João Victor Rodrigues de Araujo | 47585650 | [joaoaraujo2023-crypto](https://github.com/joaoaraujo2023-crypto) |
 

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dicionário de Dados - Plena Visão Vistoria</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 35px;
+    color: #222;
+    background: #fff;
+}
+h1 { text-align: center; color: #17365d; }
+h2 { color: #17365d; margin-top: 30px; }
+p { text-align: center; }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+    font-size: 13px;
+}
+th, td {
+    border: 1px solid #777;
+    padding: 8px;
+    text-align: left;
+}
+th { background: #d9e2f3; }
+tr:nth-child(even) { background: #f5f7fa; }
+@media print {
+    body { margin: 15mm; }
+    table { page-break-inside: auto; }
+    tr { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<h1>DICIONÁRIO DE DADOS</h1>
+<p><strong>Projeto:</strong> Plena Visão Vistoria</p>
+
+<h2>Tabela: CLIENTE</h2>
+<table>
+<tr><th>Tabela</th><th>Coluna (Campo)</th><th>Tipo de Dado</th><th>Restrição</th><th>Chave</th><th>Descrição do Campo</th></tr>
+<tr><td>CLIENTE</td><td>Codigo_Cliente</td><td>INT</td><td>NOT NULL, AUTO_INCREMENT</td><td>PK</td><td>Identificador único do cliente.</td></tr>
+<tr><td>CLIENTE</td><td>Nome_Completo</td><td>VARCHAR(150)</td><td>NOT NULL</td><td>-</td><td>Nome completo do cliente.</td></tr>
+<tr><td>CLIENTE</td><td>CPF_CNPJ</td><td>VARCHAR(20)</td><td>NOT NULL, UNIQUE</td><td>-</td><td>Documento de identificação do cliente.</td></tr>
+<tr><td>CLIENTE</td><td>Telefone</td><td>VARCHAR(20)</td><td>NULL</td><td>-</td><td>Telefone para contato.</td></tr>
+<tr><td>CLIENTE</td><td>Email</td><td>VARCHAR(120)</td><td>NULL</td><td>-</td><td>Endereço de e-mail do cliente.</td></tr>
+</table>
+
+<h2>Tabela: FECHAMENTO_LOJA</h2>
+<table>
+<tr><th>Tabela</th><th>Coluna (Campo)</th><th>Tipo de Dado</th><th>Restrição</th><th>Chave</th><th>Descrição do Campo</th></tr>
+<tr><td>FECHAMENTO_LOJA</td><td>Codigo_Fechamento</td><td>INT</td><td>NOT NULL, AUTO_INCREMENT</td><td>PK</td><td>Identificador do fechamento.</td></tr>
+<tr><td>FECHAMENTO_LOJA</td><td>Codigo_Loja</td><td>INT</td><td>NOT NULL</td><td>FK</td><td>Loja relacionada ao fechamento.</td></tr>
+<tr><td>FECHAMENTO_LOJA</td><td>Mes</td><td>INT</td><td>NOT NULL, CHECK (1 a 12)</td><td>-</td><td>Mês de referência do fechamento.</td></tr>
+<tr><td>FECHAMENTO_LOJA</td><td>Ano</td><td>INT</td><td>NOT NULL, CHECK (>= 2020)</td><td>-</td><td>Ano de referência do fechamento.</td></tr>
+<tr><td>FECHAMENTO_LOJA</td><td>Data_Fechamento</td><td>DATE</td><td>NULL</td><td>-</td><td>Data em que o fechamento foi realizado.</td></tr>
+<tr><td>FECHAMENTO_LOJA</td><td>Valor_Total</td><td>DECIMAL(10,2)</td><td>NOT NULL, DEFAULT 0.00, CHECK (>= 0)</td><td>-</td><td>Valor total das vistorias do período.</td></tr>
+<tr><td>FECHAMENTO_LOJA</td><td>Situacao_Fechamento</td><td>ENUM('ABERTO','FECHADO','ENVIADO')</td><td>NOT NULL, DEFAULT 'ABERTO'</td><td>-</td><td>Situação atual do fechamento.</td></tr>
+</table>
+
+<h2>Tabela: ITEM_FECHAMENTO</h2>
+<table>
+<tr><th>Tabela</th><th>Coluna (Campo)</th><th>Tipo de Dado</th><th>Restrição</th><th>Chave</th><th>Descrição do Campo</th></tr>
+<tr><td>ITEM_FECHAMENTO</td><td>Codigo_Item</td><td>INT</td><td>NOT NULL, AUTO_INCREMENT</td><td>PK</td><td>Identificador único do item.</td></tr>
+<tr><td>ITEM_FECHAMENTO</td><td>Codigo_Fechamento</td><td>INT</td><td>NOT NULL</td><td>FK</td><td>Fechamento ao qual o item pertence.</td></tr>
+<tr><td>ITEM_FECHAMENTO</td><td>Codigo_Vistoria</td><td>INT</td><td>NOT NULL, UNIQUE</td><td>FK</td><td>Vistoria incluída no fechamento.</td></tr>
+</table>
+
+<h2>Tabela: LOJA</h2>
+<table>
+<tr><th>Tabela</th><th>Coluna (Campo)</th><th>Tipo de Dado</th><th>Restrição</th><th>Chave</th><th>Descrição do Campo</th></tr>
+<tr><td>LOJA</td><td>Codigo_Loja</td><td>INT</td><td>NOT NULL, AUTO_INCREMENT</td><td>PK</td><td>Identificador único da loja parceira.</td></tr>
+<tr><td>LOJA</td><td>Nome_Loja</td><td>VARCHAR(100)</td><td>NOT NULL</td><td>-</td><td>Nome da loja parceira.</td></tr>
+<tr><td>LOJA</td><td>CNPJ_Loja</td><td>VARCHAR(20)</td><td>NULL, UNIQUE</td><td>-</td><td>CNPJ da loja parceira.</td></tr>
+<tr><td>LOJA</td><td>Descricao_Acordo</td><td>VARCHAR(255)</td><td>NULL</td><td>-</td><td>Descrição do acordo comercial com a loja.</td></tr>
+</table>
+
+<h2>Tabela: PAGAMENTO</h2>
+<table>
+<tr><th>Tabela</th><th>Coluna (Campo)</th><th>Tipo de Dado</th><th>Restrição</th><th>Chave</th><th>Descrição do Campo</th></tr>
+<tr><td>PAGAMENTO</td><td>Codigo_Pagamento</td><td>INT</td><td>NOT NULL, AUTO_INCREMENT</td><td>PK</td><td>Identificador único do pagamento.</td></tr>
+<tr><td>PAGAMENTO</td><td>Codigo_Vistoria</td><td>INT</td><td>NULL, UNIQUE</td><td>FK</td><td>Vistoria relacionada ao pagamento individual.</td></tr>
+<tr><td>PAGAMENTO</td><td>Codigo_Fechamento</td><td>INT</td><td>NULL, UNIQUE</td><td>FK</td><td>Fechamento de loja relacionado ao pagamento.</td></tr>
+<tr><td>PAGAMENTO</td><td>Forma_Pagamento</td><td>ENUM('DINHEIRO','PIX','DEBITO','CREDITO','BOLETO')</td><td>NOT NULL</td><td>-</td><td>Forma utilizada para realizar o pagamento.</td></tr>
+<tr><td>PAGAMENTO</td><td>Valor_Pago</td><td>DECIMAL(10,2)</td><td>NOT NULL, CHECK (> 0)</td><td>-</td><td>Valor registrado no pagamento.</td></tr>
+<tr><td>PAGAMENTO</td><td>Numero_Nota_Fiscal</td><td>VARCHAR(30)</td><td>NULL</td><td>-</td><td>Número da nota fiscal.</td></tr>
+<tr><td>PAGAMENTO</td><td>Data_Pagamento</td><td>DATETIME</td><td>NULL</td><td>-</td><td>Data e horário do pagamento.</td></tr>
+<tr><td>PAGAMENTO</td><td>Situacao_Pagamento</td><td>ENUM('PENDENTE','PAGO')</td><td>NOT NULL, DEFAULT 'PENDENTE'</td><td>-</td><td>Situação atual do pagamento.</td></tr>
+</table>
+
+<h2>Tabela: PRECO_VISTORIA</h2>
+<table>
+<tr><th>Tabela</th><th>Coluna (Campo)</th><th>Tipo de Dado</th><th>Restrição</th><th>Chave</th><th>Descrição do Campo</th></tr>
+<tr><td>PRECO_VISTORIA</td><td>Codigo_Preco</td><td>INT</td><td>NOT NULL, AUTO_INCREMENT</td><td>PK</td><td>Identificador único do preço.</td></tr>
+<tr><td>PRECO_VISTORIA</td><td>Codigo_TipoVistoria</td><td>INT</td><td>NOT NULL</td><td>FK</td><td>Tipo de vistoria relacionado ao preço.</td></tr>
+<tr><td>PRECO_VISTORIA</td><td>Codigo_Loja</td><td>INT</td><td>NULL</td><td>FK</td><td>Loja parceira relacionada ao preço, quando aplicável.</td></tr>
+<tr><td>PRECO_VISTORIA</td><td>Tipo_Atendimento</td><td>ENUM('PARTICULAR','LOJA')</td><td>NOT NULL</td><td>-</td><td>Indica se o atendimento é particular ou por loja.</td></tr>
+<tr><td>PRECO_VISTORIA</td><td>Valor</td><td>DECIMAL(10,2)</td><td>NOT NULL, CHECK (> 0)</td><td>-</td><td>Valor cobrado pelo tipo de vistoria.</td></tr>
+</table>
+
+<h2>Tabela: TIPO_VISTORIA</h2>
+<table>
+<tr><th>Tabela</th><th>Coluna (Campo)</th><th>Tipo de Dado</th><th>Restrição</th><th>Chave</th><th>Descrição do Campo</th></tr>
+<tr><td>TIPO_VISTORIA</td><td>Codigo_TipoVistoria</td><td>INT</td><td>NOT NULL, AUTO_INCREMENT</td><td>PK</td><td>Identificador único do tipo de vistoria.</td></tr>
+<tr><td>TIPO_VISTORIA</td><td>Nome_Tipo</td><td>VARCHAR(100)</td><td>NOT NULL, UNIQUE</td><td>-</td><td>Nome do tipo de vistoria.</td></tr>
+<tr><td>TIPO_VISTORIA</td><td>Descricao</td><td>VARCHAR(255)</td><td>NULL</td><td>-</td><td>Descrição do serviço de vistoria.</td></tr>
+</table>
+
+<h2>Tabela: VEICULO</h2>
+<table>
+<tr><th>Tabela</th><th>Coluna (Campo)</th><th>Tipo de Dado</th><th>Restrição</th><th>Chave</th><th>Descrição do Campo</th></tr>
+<tr><td>VEICULO</td><td>Codigo_Veiculo</td><td>INT</td><td>NOT NULL, AUTO_INCREMENT</td><td>PK</td><td>Identificador único do veículo.</td></tr>
+<tr><td>VEICULO</td><td>Placa</td><td>VARCHAR(10)</td><td>NOT NULL, UNIQUE</td><td>-</td><td>Placa de identificação do veículo.</td></tr>
+<tr><td>VEICULO</td><td>Chassi</td><td>VARCHAR(30)</td><td>NOT NULL, UNIQUE</td><td>-</td><td>Número do chassi do veículo.</td></tr>
+<tr><td>VEICULO</td><td>Renavam</td><td>VARCHAR(20)</td><td>NOT NULL, UNIQUE</td><td>-</td><td>Código Renavam do veículo.</td></tr>
+<tr><td>VEICULO</td><td>Marca</td><td>VARCHAR(60)</td><td>NOT NULL</td><td>-</td><td>Marca do veículo.</td></tr>
+<tr><td>VEICULO</td><td>Modelo</td><td>VARCHAR(80)</td><td>NOT NULL</td><td>-</td><td>Modelo do veículo.</td></tr>
+<tr><td>VEICULO</td><td>Ano_Fabricacao</td><td>YEAR</td><td>NULL</td><td>-</td><td>Ano de fabricação do veículo.</td></tr>
+</table>
+
+<h2>Tabela: VISTORIA</h2>
+<table>
+<tr><th>Tabela</th><th>Coluna (Campo)</th><th>Tipo de Dado</th><th>Restrição</th><th>Chave</th><th>Descrição do Campo</th></tr>
+<tr><td>VISTORIA</td><td>Codigo_Vistoria</td><td>INT</td><td>NOT NULL, AUTO_INCREMENT</td><td>PK</td><td>Identificador único da vistoria.</td></tr>
+<tr><td>VISTORIA</td><td>Data_Hora</td><td>DATETIME</td><td>NOT NULL</td><td>-</td><td>Data e horário da realização da vistoria.</td></tr>
+<tr><td>VISTORIA</td><td>Resultado_Vistoria</td><td>ENUM('CONFORME','APONTAMENTO','NAO_CONFORME')</td><td>NULL</td><td>-</td><td>Resultado obtido na vistoria.</td></tr>
+<tr><td>VISTORIA</td><td>Observacoes</td><td>TEXT</td><td>NULL</td><td>-</td><td>Observações sobre o procedimento realizado.</td></tr>
+<tr><td>VISTORIA</td><td>Valor_Cobrado</td><td>DECIMAL(10,2)</td><td>NOT NULL, CHECK (> 0)</td><td>-</td><td>Valor cobrado pelo serviço.</td></tr>
+<tr><td>VISTORIA</td><td>Codigo_TipoVistoria</td><td>INT</td><td>NOT NULL</td><td>FK</td><td>Tipo de vistoria realizada.</td></tr>
+<tr><td>VISTORIA</td><td>Codigo_Cliente</td><td>INT</td><td>NULL</td><td>FK</td><td>Cliente particular relacionado à vistoria.</td></tr>
+<tr><td>VISTORIA</td><td>Codigo_Loja</td><td>INT</td><td>NULL</td><td>FK</td><td>Loja parceira relacionada à vistoria.</td></tr>
+<tr><td>VISTORIA</td><td>Codigo_Veiculo</td><td>INT</td><td>NOT NULL</td><td>FK</td><td>Veículo submetido à vistoria.</td></tr>
+<tr><td>VISTORIA</td><td>Codigo_Vistoriador</td><td>INT</td><td>NOT NULL</td><td>FK</td><td>Funcionário responsável pela vistoria.</td></tr>
+</table>
+
+<h2>Tabela: VISTORIADOR</h2>
+<table>
+<tr><th>Tabela</th><th>Coluna (Campo)</th><th>Tipo de Dado</th><th>Restrição</th><th>Chave</th><th>Descrição do Campo</th></tr>
+<tr><td>VISTORIADOR</td><td>Codigo_Vistoriador</td><td>INT</td><td>NOT NULL, AUTO_INCREMENT</td><td>PK</td><td>Identificador único do vistoriador.</td></tr>
+<tr><td>VISTORIADOR</td><td>Nome_Vistoriador</td><td>VARCHAR(150)</td><td>NOT NULL</td><td>-</td><td>Nome completo do vistoriador.</td></tr>
+<tr><td>VISTORIADOR</td><td>CPF_Vistoriador</td><td>VARCHAR(20)</td><td>NOT NULL, UNIQUE</td><td>-</td><td>CPF do vistoriador.</td></tr>
+</table>
+
+</body>
+</html>

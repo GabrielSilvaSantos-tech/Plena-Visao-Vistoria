@@ -111,3 +111,16 @@ A Inteligência Artificial (IA) também poderá ser utilizada futuramente para a
 
 Essas possibilidades podem contribuir para melhorar o acompanhamento das atividades e o planejamento da empresa.
 
+## 5. Documentação dos Modelos
+
+### 5.1 Diagrama Entidade-Relacionamento (DER)
+
+O DER apresenta a estrutura conceitual do projeto, identificando as entidades, seus atributos, relacionamentos e cardinalidades.
+
+[Visualizar DER Conceitual](DER_Conceitual_Plena_Visao.pdf)
+
+### 5.2 Modelo Lógico
+
+O modelo lógico apresenta a organização das tabelas, seus campos, tipos de dados, chaves primárias e chaves estrangeiras.
+
+[Visualizar Modelo Lógico](Modelo_Logico_Plena_Visao.pdf)

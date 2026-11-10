@@ -126,3 +126,7 @@ O DER apresenta a estrutura conceitual do projeto, identificando as entidades, s
 O modelo lógico apresenta a organização das tabelas, seus campos, tipos de dados, chaves primárias e chaves estrangeiras.
 
 [Visualizar Script SQL](docs/Plena_Visao_Vistoria.sql)
+
+[Visualizar Dicionário de Dados](Dicionario_de_Dados.html)
+
+[Visualizar Levantamento de Informações](levantamento/)

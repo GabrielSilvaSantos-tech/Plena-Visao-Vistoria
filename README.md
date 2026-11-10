@@ -117,10 +117,12 @@ Essas possibilidades podem contribuir para melhorar o acompanhamento das ativida
 
 O DER apresenta a estrutura conceitual do projeto, identificando as entidades, seus atributos, relacionamentos e cardinalidades.
 
-[Visualizar DER Conceitual](DER_Conceitual_Plena_Visao.pdf)
+[Visualizar DER Conceitual](docs/DER_Conceitual_Plena_Visao.pdf)
+
+[Visualizar Modelo Lógico](docs/Modelo_Logico_Plena_Visao.pdf)
 
 ### 5.2 Modelo Lógico
 
 O modelo lógico apresenta a organização das tabelas, seus campos, tipos de dados, chaves primárias e chaves estrangeiras.
 
-[Visualizar Modelo Lógico](Modelo_Logico_Plena_Visao.pdf)
+[Visualizar Script SQL](docs/Plena_Visao_Vistoria.sql)

@@ -15,7 +15,7 @@
 
 # 1. RELATÓRIO TÉCNICO FINAL
 
-## 1.1 Revisão do Modelo Conceitual
+## 1.1.1 Revisão do Modelo Conceitual
 
 A Plena Visão Vistoria atua no segmento de inspeção e vistoria veicular, por meio de unidades franqueadas. A unidade Imirim, objeto deste projeto, oferece serviços de vistoria cautelar, vistoria de transferência (ECV) e vistoria de infração.
 
@@ -26,6 +26,8 @@ A unidade possui aproximadamente 6 funcionários e atende veículos de diferente
 A organização realiza atendimentos a clientes particulares e mantém relacionamento comercial com lojas parceiras, utilizando ferramentas específicas para os procedimentos técnicos e ferramentas administrativas para organizar seus registros.
 
 **Responsável pela organização:** Durval Aparecido Maffia — proprietário.
+
+**Telefone de contato:** (11) 2236-7090.
 
 ### 1.1.2 Visita técnica e entrevista
 

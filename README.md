@@ -240,9 +240,9 @@ O modelo conceitual não deve apresentar chaves estrangeiras, pois elas pertence
 | Ajustes de modelagem e padronização | Revisão das entidades, atributos e cardinalidades. | Melhorar a organização e a representação dos dados. |
 | Uso de chaves estrangeiras no modelo conceitual | Separação das chaves estrangeiras para o modelo lógico. | As FKs pertencem ao modelo relacional. |
 
-**Software utilizado:** brModelo.
+**Diagrama DER Conceitual**
 
-**Arquivo do diagrama:** `diagramas/DER_Conceitual_Plena_Visao.pdf`
+![DER Conceitual Plena Visão](./DER_Conceitual_Plena_Visao.jpeg)
 
 ---
 
@@ -399,9 +399,9 @@ O modelo lógico relacional representa a estrutura do banco de dados por meio de
 
 O diagrama deve apresentar as dez tabelas utilizadas no projeto, seus respectivos campos e os relacionamentos existentes.
 
-**Software utilizado:** brModelo.
+**Diagrama do Modelo Lógico**
 
-**Arquivo do modelo lógico:** `docs/Modelo_Logico_Plena_Visao.pdf`
+![Modelo Lógico Plena Visão](./Modelo_Logico_Plena_Visao.jpeg)
 
 ---
 

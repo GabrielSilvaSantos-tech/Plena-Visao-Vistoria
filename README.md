@@ -66,13 +66,11 @@ As informações observadas presencialmente foram consideradas separadamente das
 
 ![Registro da empresa](./levantamento/registro-empresa-01.jpeg)
 
-**Visita técnica**
+**Levantamento completo:**
 
-![Visita técnica 1](./levantamento/visita-tecnica-01.jpeg)
-![Visita técnica 2](./levantamento/visita-tecnica-02.jpeg)
-![Visita técnica 3](./levantamento/visita-tecnica-03.jpeg)
+As informações detalhadas obtidas durante a visita técnica e a entrevista estão disponíveis no documento separado:
 
-![Levantamento de informações](./levantamento/levantamento-informacoes-01.jpg.jpeg)
+[Consultar levantamento de informações](./levantamento/README.md).
 
 ### 1.1.3 Processos de negócio mapeados
 
@@ -80,7 +78,7 @@ Com base nas informações obtidas durante a visita e na entrevista, foram ident
 
 1. Atendimento de clientes particulares e lojas parceiras.
 2. Identificação e registro dos veículos.
-3. Realização de vistorias veiculares.
+3. Registro e acompanhamento das vistorias veiculares realizadas.
 4. Identificação do vistoriador responsável.
 5. Registro das informações relacionadas às vistorias.
 6. Registro dos resultados e observações das vistorias cautelares.
@@ -117,7 +115,7 @@ Durante o levantamento, foram identificadas as seguintes dificuldades:
 - **P01 — Informações descentralizadas:** os registros ficam distribuídos entre cadernos, folhas e conversas no WhatsApp.
 - **P02 — Dificuldade de consulta:** localizar informações antigas de determinado veículo exige procurar manualmente registros anteriores.
 - **P03 — Organização das vistorias:** é necessário reunir manualmente as vistorias realizadas para cada loja parceira.
-- **P04 — Fechamento mensal:** os valores das vistorias precisam ser somados manualmente para elaborar a cobrança de cada loja.
+- **P04 — Fechamento mensal:** os valores das vistorias precisam ser reunidos e somados manualmente em planilhas do Excel para elaborar a cobrança de cada loja.
 
 ### 1.1.6 Funcionamento dos registros de vistoria
 
@@ -128,7 +126,7 @@ Um exemplo de registro observado é:
 - Tipo de vistoria: CAUTELAR.
 - Placa: FRR6I41.
 - Modelo: ETIOS.
-- Loja ou identificação do cliente: SV.
+- Loja ou identificação do cliente: SV(loja parceira).
 - Vistoriador: LEONARDO.
 - Resultado: NÃO CONFORME.
 - Observações: histórico de roubo e furto; longarina dianteira esquerda amassada; reparo lateral esquerdo; número parcial do motor, número coletado no bloco: 1NRV239659.
@@ -159,7 +157,7 @@ Para as lojas parceiras, os valores são individualizados de acordo com cada loj
 - Clientes particulares: dinheiro, PIX, cartão de débito e cartão de crédito.
 - Lojas parceiras: cobrança por boleto, organizada por meio do fechamento mensal.
 
-O pagamento é registrado junto às informações da vistoria.
+Nos atendimentos particulares, o pagamento é relacionado diretamente à vistoria realizada. Para as lojas parceiras, os valores são reunidos nos fechamentos mensais e vinculados à cobrança por boleto.
 
 ### 1.1.8 Processo de fechamento mensal das lojas
 
@@ -167,13 +165,14 @@ O fechamento mensal é realizado por meio da reunião das vistorias efetuadas pa
 
 O responsável pelo fechamento organiza as informações em uma planilha do Excel, contendo:
 
+- Identificação da loja parceira.
 - Placa do veículo.
 - Modelo do veículo.
 - Tipo de vistoria.
 - Valor individual de cada vistoria.
 - Total geral do período.
 
-Após a organização dos registros, os valores são somados e o fechamento é enviado ao responsável pela loja parceira.
+Após a organização dos registros, os valores são somados e o fechamento é enviado ao responsável pela loja parceira para cobrança por boleto.
 
 O prazo informado para pagamento é de até dois dias após o envio do fechamento.
 
@@ -182,6 +181,8 @@ O banco de dados proposto busca facilitar essa organização, permitindo relacio
 ### 1.1.9 Escopo e justificativa do projeto
 
 O projeto contempla exclusivamente a unidade Imirim da Plena Visão Vistoria.
+
+A organização foi escolhida pelo grupo por apresentar processos reais de atendimento e vistoria veicular, além de necessidades relacionadas à organização dos registros administrativos, ao acompanhamento dos serviços e ao controle dos fechamentos mensais das lojas parceiras.
 
 O banco de dados tem como finalidade organizar e centralizar informações relacionadas a:
 
@@ -205,10 +206,10 @@ Os requisitos funcionais representam as operações que o banco de dados deverá
 - **RF02:** permitir o cadastro de veículos, armazenando informações como placa, chassi, Renavam, marca e modelo.
 - **RF03:** permitir o cadastro dos vistoriadores responsáveis pelos atendimentos.
 - **RF04:** permitir o cadastro dos tipos de vistoria: ECV, cautelar e infração.
-- **RF05:** permitir o registro das vistorias realizadas, relacionando cliente ou loja, veículo, tipo de serviço e vistoriador.
+- **RF05:** permitir o registro das vistorias realizadas, relacionando cada registro a um cliente particular ou a uma loja parceira, além do veículo, tipo de serviço e vistoriador responsável.
 - **RF06:** permitir o registro dos resultados e das observações relacionados às vistorias cautelares.
 - **RF07:** permitir o registro dos valores cobrados em cada vistoria.
-- **RF08:** permitir o registro das formas de pagamento utilizadas nos atendimentos.
+- **RF08:** permitir o registro dos pagamentos dos clientes particulares e das cobranças realizadas às lojas parceiras por meio dos fechamentos mensais.
 - **RF09:** permitir a consulta do histórico de vistorias por veículo.
 - **RF10:** permitir o cadastro dos preços negociados por loja parceira e tipo de vistoria.
 - **RF11:** permitir o registro dos fechamentos mensais das lojas parceiras.
@@ -217,7 +218,7 @@ Os requisitos funcionais representam as operações que o banco de dados deverá
 ### 1.1.11 Requisitos não funcionais
 
 - **RNF01 — Usabilidade:** a estrutura das informações deve ser simples e organizada, facilitando o entendimento e a consulta dos registros pelos funcionários.
-- **RNF02 — Segurança:** o acesso aos dados deverá ser restrito às pessoas autorizadas pela organização, conforme os mecanismos de segurança do ambiente em que o banco será utilizado.
+- **RNF02 — Segurança:** o acesso aos dados deverá ser restrito às pessoas autorizadas pela organização, conforme os mecanismos de segurança configurados no ambiente de utilização do banco.
 - **RNF03 — Integridade:** as chaves primárias, estrangeiras e restrições devem garantir a consistência dos registros.
 - **RNF04 — Privacidade:** os dados utilizados na demonstração acadêmica devem ser fictícios, evitando a exposição de informações pessoais reais.
 - **RNF05 — Organização:** as informações devem estar estruturadas em tabelas relacionadas, reduzindo a dispersão dos registros.
@@ -225,8 +226,8 @@ Os requisitos funcionais representam as operações que o banco de dados deverá
 
 ### 1.1.12 Regras de negócio
 
-- **RN01:** os atendimentos devem identificar se o registro pertence a um cliente particular ou a uma loja parceira.
-- **RN02:** os preços das lojas parceiras devem ser individualizados conforme a loja e o tipo de vistoria.
+- **RN01:** todo atendimento deve identificar se está relacionado a um cliente particular ou a uma loja parceira.
+- **RN02:** os preços praticados para as lojas parceiras devem ser individualizados conforme a loja e o tipo de vistoria.
 - **RN03:** os pagamentos dos clientes particulares podem ser realizados em dinheiro, PIX, cartão de débito ou cartão de crédito.
 - **RN04:** os fechamentos mensais das lojas devem apresentar placa, modelo, tipo de vistoria, valor individual e total geral.
 - **RN05:** o pagamento do fechamento da loja deve ocorrer em até dois dias após seu envio.
@@ -234,7 +235,7 @@ Os requisitos funcionais representam as operações que o banco de dados deverá
 - **RN07:** os pagamentos das lojas parceiras devem ser organizados por meio de fechamentos mensais e cobrança por boleto.
 - **RN08:** cada vistoria deve estar relacionada a um veículo, um tipo de vistoria e um vistoriador responsável.
 - **RN09:** as vistorias cautelares podem apresentar resultado e observações referentes às condições identificadas durante a inspeção.
-- **RN10:** os valores cobrados devem corresponder ao tipo de atendimento e à condição comercial aplicável.
+- **RN10:** o valor cobrado deve corresponder ao tipo de vistoria e à condição comercial aplicável ao atendimento.
 - **RN11:** cada vistoria deve estar vinculada a apenas um responsável pelo atendimento: cliente particular ou loja parceira.
 - **RN12:** o banco de dados proposto deve organizar os registros administrativos sem substituir ou interferir nos sistemas técnicos MEGA LAUDO e OXXY.
 
@@ -242,15 +243,11 @@ Os requisitos funcionais representam as operações que o banco de dados deverá
 
 O DER conceitual foi elaborado pelo grupo com base nas informações obtidas durante o levantamento realizado na unidade Plena Visão Vistoria — Imirim.
 
-O modelo foi desenvolvido no brModelo e representa as entidades, os atributos, os relacionamentos e as cardinalidades necessários para organizar as informações dos processos identificados.
+Por se tratar do Caso B, o modelo foi desenvolvido para a nova organização escolhida pelo grupo, representando as entidades, os atributos, os relacionamentos e as cardinalidades necessários para organizar as informações dos processos identificados.
+
+O diagrama foi elaborado no software brModelo, utilizando a notação de entidade e relacionamento e apresentando as cardinalidades mínimas e máximas de cada relacionamento.
 
 O modelo conceitual não apresenta chaves estrangeiras, pois elas pertencem à estrutura do modelo lógico relacional.
-**Tabela de correções da Entrega 1:**
-
-| Apontamento da correção da E1 | O que mudou no trabalho | Por quê |
-| :--- | :--- | :--- |
-| Ajustes de modelagem e padronização | Revisão das entidades, atributos e cardinalidades. | Melhorar a organização e a representação dos dados. |
-| Uso de chaves estrangeiras no modelo conceitual | Separação das chaves estrangeiras para o modelo lógico. | As FKs pertencem ao modelo relacional. |
 
 **Diagrama DER Conceitual**
 
@@ -278,6 +275,8 @@ O modelo lógico do projeto é composto por dez tabelas:
 As tabelas foram estruturadas para organizar os dados dos clientes particulares, lojas parceiras, veículos, vistoriadores, tipos de vistoria, registros de serviços, preços, pagamentos e fechamentos mensais.
 
 Cada tabela possui uma chave primária (PK) para identificar seus registros, enquanto as chaves estrangeiras (FK) estabelecem os relacionamentos entre as tabelas, garantindo a integridade referencial dos dados.
+
+Nos relacionamentos de um para muitos (1:N), as chaves estrangeiras são utilizadas para estabelecer a ligação entre as tabelas. Nos relacionamentos de muitos para muitos (N:N), é utilizada uma tabela associativa para representar a relação.
 
 A tabela `ITEM_FECHAMENTO` permite relacionar cada fechamento mensal às vistorias que compõem a cobrança da respectiva loja.
 
@@ -308,20 +307,33 @@ Além das chaves primárias e estrangeiras, o banco de dados utiliza restriçõe
 
 Na tabela `VISTORIA`, cada registro deve estar vinculado a um cliente particular ou a uma loja parceira, nunca aos dois simultaneamente.
 
-Na tabela `PAGAMENTO`, cada registro deve estar associado a uma vistoria ou a um fechamento, respeitando as regras de vinculação de cada forma de pagamento.
+Na tabela `PAGAMENTO`, cada registro deve estar associado a uma vistoria ou a um fechamento, respeitando as regras de vinculação de cada forma de pagamento. Os pagamentos por boleto devem estar relacionados aos fechamentos das lojas, enquanto as demais formas de pagamento são vinculadas diretamente às vistorias.
+
+Na tabela `PRECO_VISTORIA`, os registros devem respeitar o tipo de atendimento: preços particulares não possuem vínculo com uma loja, enquanto preços destinados às lojas parceiras devem identificar a respectiva loja.
+
+Na tabela `ITEM_FECHAMENTO`, cada vistoria pode aparecer em apenas um item de fechamento, evitando sua inclusão duplicada em cobranças mensais.
+
 ## 1.4 Processo de Normalização (1FN, 2FN e 3FN)
 
 **Primeira Forma Normal (1FN):**
 
 As tabelas foram organizadas para que cada campo armazene apenas um valor, evitando listas ou conjuntos de informações em uma mesma coluna. Cada registro possui uma identificação própria por meio de sua chave primária.
 
+Por exemplo, os dados de identificação do veículo são armazenados na tabela `VEICULO`, enquanto as informações referentes às vistorias são registradas separadamente na tabela `VISTORIA`.
+
 **Segunda Forma Normal (2FN):**
 
-Os atributos não-chave dependem integralmente da chave primária de suas respectivas tabelas. Como as tabelas utilizam chaves primárias individuais, os atributos são relacionados diretamente aos registros que identificam.
+Os atributos não-chave dependem integralmente da chave primária de suas respectivas tabelas. Como o modelo utiliza chaves primárias individuais, sem composição de múltiplas colunas, não existem dependências parciais em relação às chaves primárias.
+
+Dessa forma, cada tabela mantém seus atributos relacionados diretamente ao registro que identifica.
 
 **Terceira Forma Normal (3FN):**
 
-As informações foram distribuídas em tabelas específicas, evitando a repetição desnecessária de dados e dependências transitivas. Por exemplo, os dados dos clientes, veículos, lojas e vistoriadores são armazenados separadamente e relacionados por meio de chaves estrangeiras.
+As informações foram distribuídas em tabelas específicas, evitando dependências transitivas e a repetição desnecessária de dados.
+
+Por exemplo, os dados dos clientes são armazenados na tabela `CLIENTE`, os dados dos veículos na tabela `VEICULO`, os dados das lojas na tabela `LOJA` e os tipos de serviços na tabela `TIPO_VISTORIA`.
+
+A tabela `VISTORIA` utiliza chaves estrangeiras para relacionar essas informações, evitando armazenar repetidamente os dados completos dessas entidades.
 
 **Justificativa:**
 
@@ -331,15 +343,23 @@ A normalização busca reduzir redundâncias, evitar inconsistências e facilita
 
 **Chaves primárias:**
 
-Foram utilizados identificadores numéricos com `AUTO_INCREMENT` para permitir a identificação única dos registros e facilitar os relacionamentos entre as tabelas.
+Foram utilizados identificadores numéricos com `AUTO_INCREMENT` para permitir a identificação única dos registros e facilitar os relacionamentos entre as tabelas. Essa escolha padroniza a identificação dos dados e evita duplicidade de identificadores.
 
 **Chaves estrangeiras:**
 
-As chaves estrangeiras foram utilizadas para estabelecer os relacionamentos entre clientes, veículos, vistorias, lojas, vistoriadores, pagamentos e fechamentos mensais, garantindo a integridade referencial dos dados.
+As chaves estrangeiras foram utilizadas para estabelecer os relacionamentos entre clientes, veículos, vistorias, lojas, vistoriadores, pagamentos e fechamentos mensais, garantindo a integridade referencial dos dados. Essas relações atendem às regras RN01, RN06, RN07 e RN08.
 
 **Restrições de integridade:**
 
-Foram utilizadas restrições como `NOT NULL`, `UNIQUE`, `CHECK`, `DEFAULT` e `AUTO_INCREMENT`, conforme a necessidade de cada campo, evitando registros incompletos, duplicados ou inconsistentes.
+Foram previstas restrições como `NOT NULL`, `UNIQUE`, `CHECK`, `DEFAULT` e `AUTO_INCREMENT`, conforme a necessidade de cada campo, evitando registros incompletos, duplicados ou inconsistentes.
+
+Na tabela `VISTORIA`, uma restrição garante que cada registro esteja vinculado a apenas um cliente particular ou a uma loja parceira, conforme RN01 e RN11.
+
+Na tabela `PAGAMENTO`, as restrições garantem que o pagamento esteja relacionado a uma vistoria ou a um fechamento, respeitando as formas de pagamento estabelecidas nas regras RN03, RN06 e RN07.
+
+Na tabela `PRECO_VISTORIA`, as restrições diferenciam os preços de clientes particulares e lojas parceiras, conforme RN02 e RN10.
+
+Na tabela `ITEM_FECHAMENTO`, a restrição de unicidade evita que uma mesma vistoria seja incluída mais de uma vez nos fechamentos, contribuindo para a consistência das cobranças, conforme RN04.
 
 **Relacionamentos:**
 
@@ -368,15 +388,15 @@ A estrutura do banco de dados permite obter informações que podem auxiliar na 
 
 ### Indicadores propostos (KPIs)
 
-- **KPI01 — Quantidade de vistorias por tipo:** representa a quantidade de serviços registrados em cada modalidade. 
-  - Fórmula: COUNT(Codigo_Vistoria).
-  - Período: todos os registros cadastrados.
+- **KPI01 — Quantidade de vistorias por tipo:** representa a quantidade de serviços registrados em cada modalidade.
+  - Fórmula: COUNT(Codigo_Vistoria), agrupado pelo tipo de vistoria.
+  - Período: conforme o intervalo de datas selecionado.
   - Consulta SQL: G03.
   - Meta: não definida pela organização.
 
 - **KPI02 — Total cobrado por tipo de vistoria:** representa a soma dos valores cobrados pelos serviços de cada modalidade.
-  - Fórmula: SUM(Valor_Cobrado).
-  - Período: todos os registros cadastrados.
+  - Fórmula: SUM(Valor_Cobrado), agrupado pelo tipo de vistoria.
+  - Período: conforme o intervalo de datas selecionado.
   - Consulta SQL: G03.
   - Meta: não definida pela organização.
 
@@ -403,14 +423,14 @@ Essas possibilidades representam propostas futuras, não funcionalidades já imp
 | Problema ou indicador | Tabelas envolvidas | Consulta SQL |
 | :--- | :--- | :--- |
 | P01 — Informações descentralizadas | CLIENTE, VEICULO, VISTORIA, LOJA, VISTORIADOR, TIPO_VISTORIA | G01 |
-| P02 — Dificuldade para localizar registros antigos | VEICULO, VISTORIA, TIPO_VISTORIA | G01 |
-| P03 — Organização das vistorias por loja | LOJA, VISTORIA | G01 |
-| P04 — Cálculo manual dos fechamentos mensais | LOJA, FECHAMENTO_LOJA | G04 |
+| P02 — Dificuldade para localizar registros antigos | VEICULO, VISTORIA, TIPO_VISTORIA | G05 |
+| P03 — Organização das vistorias por loja | LOJA, VISTORIA | G06 |
+| P04 — Cálculo manual dos fechamentos mensais | LOJA, FECHAMENTO_LOJA, ITEM_FECHAMENTO | G07 |
 | KPI01 — Quantidade de vistorias por tipo | VISTORIA, TIPO_VISTORIA | G03 |
 | KPI02 — Total cobrado por tipo | VISTORIA, TIPO_VISTORIA | G03 |
 | KPI03 — Valores dos fechamentos mensais | LOJA, FECHAMENTO_LOJA | G04 |
 
-**Observação:** as consultas G01 e G04 permitem localizar informações relacionadas aos problemas identificados. Entretanto, a contagem agrupada de vistorias por loja e a filtragem do histórico individual de cada veículo ainda podem ser aprimoradas em consultas futuras.
+**Observação:** as consultas gerenciais propostas devem permitir a centralização das informações, a pesquisa do histórico dos veículos, o acompanhamento das vistorias por loja e a conferência dos valores dos fechamentos mensais.
 
 # 2. MODELO LÓGICO RELACIONAL
 
@@ -420,6 +440,8 @@ O modelo desenvolvido contempla as dez tabelas do projeto, apresentando seus res
 
 O diagrama foi elaborado utilizando o brModelo e representa a estrutura relacional proposta para organizar as informações da unidade Plena Visão Vistoria — Imirim.
 
+Também são apresentados os relacionamentos e suas cardinalidades, permitindo visualizar como as tabelas se relacionam e como as informações são organizadas no banco de dados.
+
 **Diagrama do Modelo Lógico**
 
 ![Modelo Lógico Plena Visão](./Modelo_Logico_Plena_Visao.jpeg)
@@ -428,21 +450,19 @@ O diagrama foi elaborado utilizando o brModelo e representa a estrutura relacion
 
 # 3. IMPLEMENTAÇÃO DO BANCO DE DADOS — SQL
 
-A implementação do banco de dados foi realizada utilizando o Sistema Gerenciador de Banco de Dados MySQL.
+A implementação do banco de dados foi desenvolvida utilizando o Sistema Gerenciador de Banco de Dados MySQL.
 
 O script SQL contempla a criação do banco de dados, das dez tabelas, das chaves primárias, das chaves estrangeiras e das restrições de integridade necessárias para manter a consistência das informações.
 
-Também foram realizadas inserções de dados fictícios para demonstrar o funcionamento do banco de dados, além de consultas SQL para recuperação de informações, consultas gerenciais e operações de auditoria.
+Também foram elaboradas inserções de dados fictícios para demonstrar o funcionamento do banco de dados, além de consultas SQL para recuperação de informações, consultas gerenciais e operações de auditoria.
 
-O script contempla operações de inserção, consulta, atualização e exclusão de registros, permitindo verificar diferentes funcionalidades da estrutura desenvolvida.
+O script contempla operações de inserção, consulta, atualização e exclusão de registros, permitindo demonstrar diferentes funcionalidades da estrutura desenvolvida.
 
 **Arquivo SQL:**
 
 [`Plena_Visao_Vistoria.sql`](./docs/Plena_Visao_Vistoria.sql)
 
-O script deverá ser executado em um ambiente de teste, preferencialmente a partir de um banco de dados vazio, para verificar a criação das tabelas, a inserção dos registros e o funcionamento das consultas.
-
----
+O script deve ser executado em um ambiente de teste, preferencialmente a partir de um banco de dados vazio, para verificar a criação das tabelas, a inserção dos registros, as restrições de integridade e o funcionamento das consultas.
 
 # 4. MASSA DE DADOS
 

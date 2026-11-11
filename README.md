@@ -19,13 +19,13 @@
 
 ### 1.1.1 Caracterização da organização
 
-A Plena Visão Vistoria é uma empresa que atua no segmento de inspeção e vistoria veicular, realizando serviços de vistoria cautelar, vistoria de transferência (ECV) e vistoria de infração.
+A Plena Visão Vistoria é uma empresa que atua no segmento de inspeção e vistoria veicular, oferecendo serviços de vistoria cautelar, vistoria de transferência (ECV) e vistoria de infração.
 
 O projeto foi desenvolvido com foco exclusivo na unidade localizada na Avenida Direitos Humanos, nº 38, bairro Imirim, São Paulo – SP, CEP 02475-000.
 
-A unidade possui aproximadamente 6 funcionários e atende diferentes categorias de veículos, como carros, motos, caminhões e ônibus.
+A unidade possui aproximadamente 6 funcionários e atende veículos de diferentes categorias, como carros, motos, caminhões e ônibus.
 
-A empresa utiliza ferramentas específicas para a realização dos procedimentos técnicos de vistoria e também mantém registros administrativos relacionados aos atendimentos e às lojas parceiras.
+A organização realiza atendimentos a clientes particulares e mantém relacionamento comercial com lojas parceiras, utilizando ferramentas específicas para os procedimentos técnicos e ferramentas administrativas para organizar seus registros.
 
 **Responsável pela organização:** Durval Aparecido Maffia — proprietário.
 

@@ -17,9 +17,7 @@
 
 ## 1.1 Revisão do Modelo Conceitual
 
-### 1.1.1 Caracterização da organização
-
-A Plena Visão Vistoria é uma empresa que atua no segmento de inspeção e vistoria veicular, oferecendo serviços de vistoria cautelar, vistoria de transferência (ECV) e vistoria de infração.
+A Plena Visão Vistoria atua no segmento de inspeção e vistoria veicular, por meio de unidades franqueadas. A unidade Imirim, objeto deste projeto, oferece serviços de vistoria cautelar, vistoria de transferência (ECV) e vistoria de infração.
 
 O projeto foi desenvolvido com foco exclusivo na unidade localizada na Avenida Direitos Humanos, nº 38, bairro Imirim, São Paulo – SP, CEP 02475-000.
 

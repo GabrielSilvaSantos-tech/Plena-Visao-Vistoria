@@ -28,6 +28,16 @@
 
 A unidade Imirim da Plena Visão Vistoria realiza serviços de inspeção e vistoria veicular, atendendo clientes particulares e lojas parceiras.
 
+## Volume de atividades e horário de funcionamento
+
+A unidade realiza aproximadamente 50 a 60 vistorias por dia, atendendo veículos de diferentes categorias e clientes particulares e lojas parceiras.
+
+**Horário de funcionamento:**
+
+- Segunda a sexta-feira: das 08h30 às 18h00.
+- Sábado: das 09h00 às 16h00.
+- Domingo: não há expediente.
+
 Os principais serviços identificados são:
 
 - **Vistoria cautelar:** avaliação das condições e características do veículo, com registro do resultado e de observações.

@@ -62,16 +62,13 @@ As informações observadas presencialmente foram consideradas separadamente das
 
 **Registro da empresa**
 
-![Registro da empresa](./levantamento/registro-empresa-01.jpg.jpeg)
+![Registro da empresa](./levantamento/registro-empresa-01.jpeg)
 
 **Visita técnica**
 
-![Visita técnica 1](./levantamento/visita-tecnica-01.jpg.jpeg)
-
-![Visita técnica 2](./levantamento/visita-tecnica-02.jpg.jpeg)
-
-![Visita técnica 3](./levantamento/visita-tecnica-03.jpg.jpeg)
-
+![Visita técnica 1](./levantamento/visita-tecnica-01.jpeg)
+![Visita técnica 2](./levantamento/visita-tecnica-02.jpeg)
+![Visita técnica 3](./levantamento/visita-tecnica-03.jpeg)
 
 ![Levantamento de informações](./levantamento/levantamento-informacoes-01.jpg.jpeg)
 

@@ -58,13 +58,22 @@ Durante a visita, o grupo acompanhou a realização de algumas vistorias e obser
 
 As informações observadas presencialmente foram consideradas separadamente das respostas fornecidas pelo entrevistado.
 
-**Evidências da visita:**
+#### Evidências da visita técnica
 
-As fotografias e demais registros da visita técnica devem ser armazenados na pasta `levantamento/` do repositório.
+**Registro da empresa**
 
-O relato completo da visita e da entrevista está organizado em:
+![Registro da empresa](./levantamento/registro-empresa-01.jpg)
 
-[`levantamento/levantamento.md`](levantamento/levantamento.md)
+**Visita técnica**
+
+![Visita técnica 1](./levantamento/visita-tecnica-01.jpg)
+
+![Visita técnica 2](./levantamento/visita-tecnica-02.jpg)
+
+![Visita técnica 3](./levantamento/visita-tecnica-03.jpg)
+
+
+![Levantamento de informações](./levantamento/levantamento-informacoes-01.jpg.jpeg)
 
 ### 1.1.3 Processos de negócio mapeados
 

@@ -1,18 +1,11 @@
--- =====================================================
--- PROJETO PLENA VISAO VISTORIA
--- ARQUIVO SQL UNIFICADO: ESTRUTURA, DADOS E CONSULTAS
--- ATENCAO: este script apaga e recria as tabelas existentes
--- no banco indicado. Faça backup antes de executar.
--- =====================================================
-
-CREATE DATABASE IF NOT EXISTS plena_visao_vistoria_caso_b;
-USE plena_visao_vistoria_caso_b;
-
 -- MySQL dump 10.13  Distrib 8.0.46, for Win64 (x86_64)
 --
 -- Host: localhost    Database: plena_visao_vistoria_caso_b
 -- ------------------------------------------------------
 -- Server version	8.0.46
+
+CREATE DATABASE IF NOT EXISTS plena_visao_vistoria_caso_b;
+USE plena_visao_vistoria_caso_b;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -26,7 +19,6 @@ USE plena_visao_vistoria_caso_b;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
-
 -- Table structure for table `cliente`
 --
 
@@ -52,170 +44,6 @@ LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
 INSERT INTO `cliente` VALUES (1,'CLIENTE DEMONSTRACAO 01','DEMO-CLIENTE-001','(11) 90000-0001','cliente01@exemplo.com'),(2,'CLIENTE DEMONSTRACAO 02','DEMO-CLIENTE-002','(11) 90000-0002','cliente02@exemplo.com'),(3,'CLIENTE DEMONSTRACAO 03','DEMO-CLIENTE-003','(11) 90000-0003','cliente03@exemplo.com');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `loja`
---
-
-DROP TABLE IF EXISTS `loja`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `loja` (
-  `Codigo_Loja` int NOT NULL AUTO_INCREMENT,
-  `Nome_Loja` varchar(100) NOT NULL,
-  `CNPJ_Loja` varchar(20) DEFAULT NULL,
-  `Descricao_Acordo` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`Codigo_Loja`),
-  UNIQUE KEY `CNPJ_Loja` (`CNPJ_Loja`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `loja`
---
-
-LOCK TABLES `loja` WRITE;
-/*!40000 ALTER TABLE `loja` DISABLE KEYS */;
-INSERT INTO `loja` VALUES (1,'CARANGOS PREMIUM',NULL,NULL),(2,'AUTO NOVE',NULL,NULL),(3,'AUTO AVENIDA',NULL,NULL),(4,'AUTO TAG',NULL,NULL),(5,'B&G',NULL,NULL),(6,'DH MOTOS',NULL,NULL),(7,'ENS',NULL,NULL),(8,'GTS MOTORS',NULL,NULL),(9,'GAC SUMARE',NULL,NULL),(10,'MUNIZ CENTRO DE REPASSE',NULL,NULL),(11,'PRO AUTO SUMARE',NULL,NULL),(12,'PRO AUTO ENGENHEIRO',NULL,NULL),(13,'PRO AUTO MITNORTH',NULL,NULL),(14,'SELECT CARRILO',NULL,NULL),(15,'RB VEICULOS',NULL,NULL),(16,'VELOCITTA',NULL,NULL);
-/*!40000 ALTER TABLE `loja` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `tipo_vistoria`
---
-
-DROP TABLE IF EXISTS `tipo_vistoria`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tipo_vistoria` (
-  `Codigo_TipoVistoria` int NOT NULL AUTO_INCREMENT,
-  `Nome_Tipo` varchar(100) NOT NULL,
-  `Descricao` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`Codigo_TipoVistoria`),
-  UNIQUE KEY `Nome_Tipo` (`Nome_Tipo`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tipo_vistoria`
---
-
-LOCK TABLES `tipo_vistoria` WRITE;
-/*!40000 ALTER TABLE `tipo_vistoria` DISABLE KEYS */;
-INSERT INTO `tipo_vistoria` VALUES (1,'ECV','Vistoria de identificação veicular'),(2,'CAUTELAR','Vistoria cautelar veicular'),(3,'INFRACAO DE TRANSITO (REVISTORIA)','Revistoria relacionada a infração de trânsito');
-/*!40000 ALTER TABLE `tipo_vistoria` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `veiculo`
---
-
-DROP TABLE IF EXISTS `veiculo`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `veiculo` (
-  `Codigo_Veiculo` int NOT NULL AUTO_INCREMENT,
-  `Placa` varchar(10) NOT NULL,
-  `Chassi` varchar(30) NOT NULL,
-  `Renavam` varchar(20) NOT NULL,
-  `Marca` varchar(60) NOT NULL,
-  `Modelo` varchar(80) NOT NULL,
-  `Ano_Fabricacao` year DEFAULT NULL,
-  PRIMARY KEY (`Codigo_Veiculo`),
-  UNIQUE KEY `Placa` (`Placa`),
-  UNIQUE KEY `Chassi` (`Chassi`),
-  UNIQUE KEY `Renavam` (`Renavam`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `veiculo`
---
-
-LOCK TABLES `veiculo` WRITE;
-/*!40000 ALTER TABLE `veiculo` DISABLE KEYS */;
-INSERT INTO `veiculo` VALUES (1,'ABC1D23','CHASSI-DEMO-000001','RENAVAM-DEMO-001','TOYOTA','COROLLA',2020),(2,'DEF4G56','CHASSI-DEMO-000002','RENAVAM-DEMO-002','FORD','KA',2019),(3,'GHI7J89','CHASSI-DEMO-000003','RENAVAM-DEMO-003','CHEVROLET','ONIX',2022),(4,'DEMO-0004','CHASSI-DEMO-000004','RENAVAM-DEMO-004','FIAT','ARGO',2021),(5,'DEMO-0005','CHASSI-DEMO-000005','RENAVAM-DEMO-005','HONDA','CIVIC',2023);
-/*!40000 ALTER TABLE `veiculo` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `vistoriador`
---
-
-DROP TABLE IF EXISTS `vistoriador`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `vistoriador` (
-  `Codigo_Vistoriador` int NOT NULL AUTO_INCREMENT,
-  `Nome_Vistoriador` varchar(150) NOT NULL,
-  `CPF_Vistoriador` varchar(20) NOT NULL,
-  PRIMARY KEY (`Codigo_Vistoriador`),
-  UNIQUE KEY `CPF_Vistoriador` (`CPF_Vistoriador`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `vistoriador`
---
-
-LOCK TABLES `vistoriador` WRITE;
-/*!40000 ALTER TABLE `vistoriador` DISABLE KEYS */;
-INSERT INTO `vistoriador` VALUES (1,'Danilo','DEMO-VIST-001'),(2,'Durval','DEMO-VIST-002'),(3,'Leonardo','DEMO-VIST-003'),(4,'Leandro','DEMO-VIST-004'),(5,'Gabriel','DEMO-VIST-005');
-/*!40000 ALTER TABLE `vistoriador` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2026-11-09 20:57:33
--- Table structure for table `vistoria`
---
-
-DROP TABLE IF EXISTS `vistoria`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `vistoria` (
-  `Codigo_Vistoria` int NOT NULL AUTO_INCREMENT,
-  `Data_Hora` datetime NOT NULL,
-  `Resultado_Vistoria` enum('CONFORME','APONTAMENTO','NAO_CONFORME') DEFAULT NULL,
-  `Observacoes` text,
-  `Valor_Cobrado` decimal(10,2) NOT NULL,
-  `Codigo_TipoVistoria` int NOT NULL,
-  `Codigo_Cliente` int DEFAULT NULL,
-  `Codigo_Loja` int DEFAULT NULL,
-  `Codigo_Veiculo` int NOT NULL,
-  `Codigo_Vistoriador` int NOT NULL,
-  PRIMARY KEY (`Codigo_Vistoria`),
-  KEY `Codigo_TipoVistoria` (`Codigo_TipoVistoria`),
-  KEY `Codigo_Cliente` (`Codigo_Cliente`),
-  KEY `Codigo_Loja` (`Codigo_Loja`),
-  KEY `Codigo_Veiculo` (`Codigo_Veiculo`),
-  KEY `Codigo_Vistoriador` (`Codigo_Vistoriador`),
-  CONSTRAINT `vistoria_ibfk_1` FOREIGN KEY (`Codigo_TipoVistoria`) REFERENCES `tipo_vistoria` (`Codigo_TipoVistoria`),
-  CONSTRAINT `vistoria_ibfk_2` FOREIGN KEY (`Codigo_Cliente`) REFERENCES `cliente` (`Codigo_Cliente`),
-  CONSTRAINT `vistoria_ibfk_3` FOREIGN KEY (`Codigo_Loja`) REFERENCES `loja` (`Codigo_Loja`),
-  CONSTRAINT `vistoria_ibfk_4` FOREIGN KEY (`Codigo_Veiculo`) REFERENCES `veiculo` (`Codigo_Veiculo`),
-  CONSTRAINT `vistoria_ibfk_5` FOREIGN KEY (`Codigo_Vistoriador`) REFERENCES `vistoriador` (`Codigo_Vistoriador`),
-  CONSTRAINT `vistoria_chk_1` CHECK ((((`Codigo_Cliente` is not null) and (`Codigo_Loja` is null)) or ((`Codigo_Cliente` is null) and (`Codigo_Loja` is not null)))),
-  CONSTRAINT `vistoria_chk_2` CHECK ((`Valor_Cobrado` > 0))
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `vistoria`
---
-
-LOCK TABLES `vistoria` WRITE;
-/*!40000 ALTER TABLE `vistoria` DISABLE KEYS */;
-INSERT INTO `vistoria` VALUES (1,'2026-11-04 09:00:00',NULL,NULL,135.00,1,1,NULL,1,1),(2,'2026-11-04 10:00:00','CONFORME','DADOS FICTICIOS DE DEMONSTRACAO',299.00,2,2,NULL,2,2),(3,'2026-11-04 11:00:00','APONTAMENTO','DADOS FICTICIOS: REPARO LATERAL ESQUERDA',80.00,2,NULL,1,1,3),(4,'2026-11-04 13:00:00','NAO_CONFORME','DADOS FICTICIOS: LONGARINA DIANTEIRA AMASSADA',100.00,2,NULL,10,2,4),(5,'2026-11-04 14:00:00',NULL,'DADOS FICTICIOS DE DEMONSTRACAO',190.00,3,NULL,16,3,5);
-/*!40000 ALTER TABLE `vistoria` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -282,6 +110,33 @@ INSERT INTO `item_fechamento` VALUES (1,1,3);
 UNLOCK TABLES;
 
 --
+-- Table structure for table `loja`
+--
+
+DROP TABLE IF EXISTS `loja`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `loja` (
+  `Codigo_Loja` int NOT NULL AUTO_INCREMENT,
+  `Nome_Loja` varchar(100) NOT NULL,
+  `CNPJ_Loja` varchar(20) DEFAULT NULL,
+  `Descricao_Acordo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`Codigo_Loja`),
+  UNIQUE KEY `CNPJ_Loja` (`CNPJ_Loja`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `loja`
+--
+
+LOCK TABLES `loja` WRITE;
+/*!40000 ALTER TABLE `loja` DISABLE KEYS */;
+INSERT INTO `loja` VALUES (1,'CARANGOS PREMIUM',NULL,NULL),(2,'AUTO NOVE',NULL,NULL),(3,'AUTO AVENIDA',NULL,NULL),(4,'AUTO TAG',NULL,NULL),(5,'B&G',NULL,NULL),(6,'DH MOTOS',NULL,NULL),(7,'ENS',NULL,NULL),(8,'GTS MOTORS',NULL,NULL),(9,'GAC SUMARE',NULL,NULL),(10,'MUNIZ CENTRO DE REPASSE',NULL,NULL),(11,'PRO AUTO SUMARE',NULL,NULL),(12,'PRO AUTO ENGENHEIRO',NULL,NULL),(13,'PRO AUTO MITNORTH',NULL,NULL),(14,'SELECT CARRILO',NULL,NULL),(15,'RB VEICULOS',NULL,NULL),(16,'VELOCITTA',NULL,NULL);
+/*!40000 ALTER TABLE `loja` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `pagamento`
 --
 
@@ -305,7 +160,7 @@ CREATE TABLE `pagamento` (
   CONSTRAINT `chk_pagamento_forma_vinculo` CHECK ((((`Codigo_Vistoria` is not null) and (`Codigo_Fechamento` is null) and (`Forma_Pagamento` <> _utf8mb4'BOLETO')) or ((`Codigo_Vistoria` is null) and (`Codigo_Fechamento` is not null) and (`Forma_Pagamento` = _utf8mb4'BOLETO')))),
   CONSTRAINT `chk_pagamento_vinculo` CHECK ((((`Codigo_Vistoria` is not null) and (`Codigo_Fechamento` is null)) or ((`Codigo_Vistoria` is null) and (`Codigo_Fechamento` is not null)))),
   CONSTRAINT `pagamento_chk_1` CHECK ((`Valor_Pago` > 0))
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -314,7 +169,7 @@ CREATE TABLE `pagamento` (
 
 LOCK TABLES `pagamento` WRITE;
 /*!40000 ALTER TABLE `pagamento` DISABLE KEYS */;
-INSERT INTO `pagamento` VALUES (1,1,NULL,'PIX',135.00,'NF-DEMO-001','2026-11-04 09:30:00','PAGO'),(2,2,NULL,'DEBITO',299.00,'NF-DEMO-002','2026-11-04 10:30:00','PAGO');
+INSERT INTO `pagamento` VALUES (1,1,NULL,'PIX',135.00,'NF-DEMO-001','2026-11-04 09:30:00','PAGO'),(2,2,NULL,'DEBITO',299.00,'NF-DEMO-002','2026-11-04 10:30:00','PAGO'),(3,NULL,1,'BOLETO',80.00,NULL,NULL,'PENDENTE');
 /*!40000 ALTER TABLE `pagamento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -352,113 +207,270 @@ INSERT INTO `preco_vistoria` VALUES (1,1,NULL,'PARTICULAR',135.00),(2,2,NULL,'PA
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tipo_vistoria`
+--
+
+DROP TABLE IF EXISTS `tipo_vistoria`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tipo_vistoria` (
+  `Codigo_TipoVistoria` int NOT NULL AUTO_INCREMENT,
+  `Nome_Tipo` varchar(100) NOT NULL,
+  `Descricao` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`Codigo_TipoVistoria`),
+  UNIQUE KEY `Nome_Tipo` (`Nome_Tipo`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tipo_vistoria`
+--
+
+LOCK TABLES `tipo_vistoria` WRITE;
+/*!40000 ALTER TABLE `tipo_vistoria` DISABLE KEYS */;
+INSERT INTO `tipo_vistoria` VALUES (1,'ECV','Vistoria de identificação veicular'),(2,'CAUTELAR','Vistoria cautelar veicular'),(3,'INFRACAO DE TRANSITO (REVISTORIA)','Revistoria relacionada a infração de trânsito');
+/*!40000 ALTER TABLE `tipo_vistoria` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `veiculo`
+--
+
+DROP TABLE IF EXISTS `veiculo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `veiculo` (
+  `Codigo_Veiculo` int NOT NULL AUTO_INCREMENT,
+  `Placa` varchar(10) NOT NULL,
+  `Chassi` varchar(30) NOT NULL,
+  `Renavam` varchar(20) NOT NULL,
+  `Marca` varchar(60) NOT NULL,
+  `Modelo` varchar(80) NOT NULL,
+  `Ano_Fabricacao` year DEFAULT NULL,
+  PRIMARY KEY (`Codigo_Veiculo`),
+  UNIQUE KEY `Placa` (`Placa`),
+  UNIQUE KEY `Chassi` (`Chassi`),
+  UNIQUE KEY `Renavam` (`Renavam`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `veiculo`
+--
+
+LOCK TABLES `veiculo` WRITE;
+/*!40000 ALTER TABLE `veiculo` DISABLE KEYS */;
+INSERT INTO `veiculo` VALUES (1,'ABC1D23','CHASSI-DEMO-000001','RENAVAM-DEMO-001','TOYOTA','COROLLA',2020),(2,'DEF4G56','CHASSI-DEMO-000002','RENAVAM-DEMO-002','FORD','KA',2019),(3,'GHI7J89','CHASSI-DEMO-000003','RENAVAM-DEMO-003','CHEVROLET','ONIX',2022),(4,'DEMO-0004','CHASSI-DEMO-000004','RENAVAM-DEMO-004','FIAT','ARGO',2021),(5,'DEMO-0005','CHASSI-DEMO-000005','RENAVAM-DEMO-005','HONDA','CIVIC',2023);
+/*!40000 ALTER TABLE `veiculo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `vistoria`
+--
+
+DROP TABLE IF EXISTS `vistoria`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `vistoria` (
+  `Codigo_Vistoria` int NOT NULL AUTO_INCREMENT,
+  `Data_Hora` datetime NOT NULL,
+  `Resultado_Vistoria` enum('CONFORME','APONTAMENTO','NAO_CONFORME') DEFAULT NULL,
+  `Observacoes` text,
+  `Valor_Cobrado` decimal(10,2) NOT NULL,
+  `Codigo_TipoVistoria` int NOT NULL,
+  `Codigo_Cliente` int DEFAULT NULL,
+  `Codigo_Loja` int DEFAULT NULL,
+  `Codigo_Veiculo` int NOT NULL,
+  `Codigo_Vistoriador` int NOT NULL,
+  PRIMARY KEY (`Codigo_Vistoria`),
+  KEY `Codigo_TipoVistoria` (`Codigo_TipoVistoria`),
+  KEY `Codigo_Cliente` (`Codigo_Cliente`),
+  KEY `Codigo_Loja` (`Codigo_Loja`),
+  KEY `Codigo_Veiculo` (`Codigo_Veiculo`),
+  KEY `Codigo_Vistoriador` (`Codigo_Vistoriador`),
+  CONSTRAINT `vistoria_ibfk_1` FOREIGN KEY (`Codigo_TipoVistoria`) REFERENCES `tipo_vistoria` (`Codigo_TipoVistoria`),
+  CONSTRAINT `vistoria_ibfk_2` FOREIGN KEY (`Codigo_Cliente`) REFERENCES `cliente` (`Codigo_Cliente`),
+  CONSTRAINT `vistoria_ibfk_3` FOREIGN KEY (`Codigo_Loja`) REFERENCES `loja` (`Codigo_Loja`),
+  CONSTRAINT `vistoria_ibfk_4` FOREIGN KEY (`Codigo_Veiculo`) REFERENCES `veiculo` (`Codigo_Veiculo`),
+  CONSTRAINT `vistoria_ibfk_5` FOREIGN KEY (`Codigo_Vistoriador`) REFERENCES `vistoriador` (`Codigo_Vistoriador`),
+  CONSTRAINT `vistoria_chk_1` CHECK ((((`Codigo_Cliente` is not null) and (`Codigo_Loja` is null)) or ((`Codigo_Cliente` is null) and (`Codigo_Loja` is not null)))),
+  CONSTRAINT `vistoria_chk_2` CHECK ((`Valor_Cobrado` > 0))
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `vistoria`
+--
+
+LOCK TABLES `vistoria` WRITE;
+/*!40000 ALTER TABLE `vistoria` DISABLE KEYS */;
+INSERT INTO `vistoria` VALUES (1,'2026-11-04 09:00:00',NULL,NULL,135.00,1,1,NULL,1,1),(2,'2026-11-04 10:00:00','CONFORME','DADOS FICTICIOS DE DEMONSTRACAO',299.00,2,2,NULL,2,2),(3,'2026-11-04 11:00:00','APONTAMENTO','DADOS FICTICIOS: REPARO LATERAL ESQUERDA',80.00,2,NULL,1,1,3),(4,'2026-11-04 13:00:00','NAO_CONFORME','DADOS FICTICIOS: LONGARINA DIANTEIRA AMASSADA',100.00,2,NULL,10,2,4),(5,'2026-11-04 14:00:00',NULL,'DADOS FICTICIOS DE DEMONSTRACAO',190.00,3,NULL,16,3,5);
+/*!40000 ALTER TABLE `vistoria` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `vistoriador`
+--
+
+DROP TABLE IF EXISTS `vistoriador`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `vistoriador` (
+  `Codigo_Vistoriador` int NOT NULL AUTO_INCREMENT,
+  `Nome_Vistoriador` varchar(150) NOT NULL,
+  `CPF_Vistoriador` varchar(20) NOT NULL,
+  PRIMARY KEY (`Codigo_Vistoriador`),
+  UNIQUE KEY `CPF_Vistoriador` (`CPF_Vistoriador`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `vistoriador`
+--
+
+LOCK TABLES `vistoriador` WRITE;
+/*!40000 ALTER TABLE `vistoriador` DISABLE KEYS */;
+INSERT INTO `vistoriador` VALUES (1,'Danilo','DEMO-VIST-001'),(2,'Durval','DEMO-VIST-002'),(3,'Leonardo','DEMO-VIST-003'),(4,'Leandro','DEMO-VIST-004'),(5,'Gabriel','DEMO-VIST-005');
+/*!40000 ALTER TABLE `vistoriador` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on
+
 
 -- =====================================================
--- CONSULTAS GERENCIAIS, AUDITORIA E TESTES
+-- 4. CONSULTAS SQL (G01 A G07)
 -- =====================================================
 
--- =====================================================
--- CONSULTAS GERENCIAIS E DE AUDITORIA
--- PROJETO PLENA VISAO VISTORIA
--- =====================================================
+USE plena_visao_vistoria_caso_b;
 
--- G01 - Consultar as vistorias realizadas,
--- identificando cliente ou loja, veículo e vistoriador.
-
+-- G01: Consulta geral das vistorias
 SELECT
     v.Codigo_Vistoria,
-    DATE_FORMAT(v.Data_Hora, '%d/%m/%Y %H:%i:%s') AS Data_Hora,
-    COALESCE(c.Nome_Completo, l.Nome_Loja) AS Responsavel,
+    c.Nome_Completo,
+    l.Nome_Loja,
     ve.Placa,
-    ve.Marca,
-    ve.Modelo,
     tv.Nome_Tipo,
     vi.Nome_Vistoriador,
     v.Valor_Cobrado,
-    v.Resultado_Vistoria
+    v.Data_Hora
 FROM vistoria v
-LEFT JOIN cliente c
-    ON v.Codigo_Cliente = c.Codigo_Cliente
-LEFT JOIN loja l
-    ON v.Codigo_Loja = l.Codigo_Loja
-INNER JOIN veiculo ve
-    ON v.Codigo_Veiculo = ve.Codigo_Veiculo
-INNER JOIN tipo_vistoria tv
-    ON v.Codigo_TipoVistoria = tv.Codigo_TipoVistoria
-INNER JOIN vistoriador vi
-    ON v.Codigo_Vistoriador = vi.Codigo_Vistoriador
-ORDER BY v.Data_Hora;
+LEFT JOIN cliente c ON v.Codigo_Cliente = c.Codigo_Cliente
+LEFT JOIN loja l ON v.Codigo_Loja = l.Codigo_Loja
+JOIN veiculo ve ON v.Codigo_Veiculo = ve.Codigo_Veiculo
+JOIN tipo_vistoria tv ON v.Codigo_TipoVistoria = tv.Codigo_TipoVistoria
+JOIN vistoriador vi ON v.Codigo_Vistoriador = vi.Codigo_Vistoriador;
 
-
--- G02 - Consultar os pagamentos e suas situações.
-
+-- G02: Consulta dos pagamentos
 SELECT
     p.Codigo_Pagamento,
     p.Forma_Pagamento,
     p.Valor_Pago,
-    DATE_FORMAT(p.Data_Pagamento, '%d/%m/%Y %H:%i:%s') AS Data_Pagamento,
     p.Situacao_Pagamento,
     p.Codigo_Vistoria,
     p.Codigo_Fechamento
 FROM pagamento p
 ORDER BY p.Codigo_Pagamento;
 
-
--- G03 - Consultar o total cobrado por tipo de vistoria.
-
+-- G03: Quantidade e faturamento por tipo de vistoria
 SELECT
     tv.Nome_Tipo,
-    COUNT(v.Codigo_Vistoria) AS Quantidade_Vistorias,
-    SUM(v.Valor_Cobrado) AS Total_Cobrado
+    COUNT(v.Codigo_Vistoria) AS Quantidade,
+    COALESCE(SUM(v.Valor_Cobrado), 0) AS Faturamento
 FROM tipo_vistoria tv
 LEFT JOIN vistoria v
     ON tv.Codigo_TipoVistoria = v.Codigo_TipoVistoria
 GROUP BY tv.Codigo_TipoVistoria, tv.Nome_Tipo;
 
-
--- G04 - Consultar os fechamentos financeiros das lojas.
-
+-- G04: Fechamentos mensais por loja
 SELECT
     l.Nome_Loja,
     f.Mes,
     f.Ano,
     f.Valor_Total,
     f.Situacao_Fechamento,
-    DATE_FORMAT(f.Data_Fechamento, '%d/%m/%Y') AS Data_Fechamento
+    p.Forma_Pagamento,
+    p.Situacao_Pagamento
 FROM fechamento_loja f
-INNER JOIN loja l
-    ON f.Codigo_Loja = l.Codigo_Loja
-ORDER BY f.Ano, f.Mes;
+JOIN loja l ON f.Codigo_Loja = l.Codigo_Loja
+LEFT JOIN pagamento p
+    ON f.Codigo_Fechamento = p.Codigo_Fechamento;
+
+-- G05: Histórico de vistorias por placa
+SELECT
+    ve.Placa,
+    ve.Marca,
+    ve.Modelo,
+    v.Data_Hora,
+    tv.Nome_Tipo,
+    v.Resultado_Vistoria,
+    v.Valor_Cobrado
+FROM veiculo ve
+JOIN vistoria v ON ve.Codigo_Veiculo = v.Codigo_Veiculo
+JOIN tipo_vistoria tv
+    ON v.Codigo_TipoVistoria = tv.Codigo_TipoVistoria
+WHERE ve.Placa = 'ABC1D23'
+ORDER BY v.Data_Hora DESC;
+
+-- G06: Quantidade e valores de vistorias por loja
+SELECT
+    l.Codigo_Loja,
+    l.Nome_Loja,
+    COUNT(v.Codigo_Vistoria) AS Quantidade_Vistorias,
+    COALESCE(SUM(v.Valor_Cobrado), 0) AS Total_Cobrado
+FROM loja l
+LEFT JOIN vistoria v ON l.Codigo_Loja = v.Codigo_Loja
+GROUP BY l.Codigo_Loja, l.Nome_Loja
+ORDER BY Total_Cobrado DESC;
+
+-- G07: Conferência dos valores dos fechamentos
+SELECT
+    f.Codigo_Fechamento,
+    l.Nome_Loja,
+    f.Valor_Total AS Valor_Fechamento,
+    COALESCE(SUM(v.Valor_Cobrado), 0) AS Soma_Vistorias,
+    f.Valor_Total - COALESCE(SUM(v.Valor_Cobrado), 0) AS Diferenca
+FROM fechamento_loja f
+JOIN loja l ON f.Codigo_Loja = l.Codigo_Loja
+LEFT JOIN item_fechamento i
+    ON f.Codigo_Fechamento = i.Codigo_Fechamento
+LEFT JOIN vistoria v ON i.Codigo_Vistoria = v.Codigo_Vistoria
+GROUP BY f.Codigo_Fechamento, l.Nome_Loja, f.Valor_Total;
 
 
--- A01 - Verificar vistorias que ainda não possuem pagamento registrado.
+-- =====================================================
+-- 5. CONSULTAS DE AUDITORIA (A01 A A03)
+-- =====================================================
 
+-- A01: Vistorias particulares sem pagamento
 SELECT
     v.Codigo_Vistoria,
-    DATE_FORMAT(v.Data_Hora, '%d/%m/%Y %H:%i:%s') AS Data_Hora,
+    c.Nome_Completo,
     v.Valor_Cobrado
 FROM vistoria v
-LEFT JOIN pagamento p
-    ON v.Codigo_Vistoria = p.Codigo_Vistoria
+JOIN cliente c ON v.Codigo_Cliente = c.Codigo_Cliente
+LEFT JOIN pagamento p ON v.Codigo_Vistoria = p.Codigo_Vistoria
 WHERE p.Codigo_Pagamento IS NULL;
 
-
--- A02 - Verificar veículos cadastrados que ainda não possuem vistoria.
-
+-- A02: Veículos sem nenhuma vistoria
 SELECT
     ve.Codigo_Veiculo,
     ve.Placa,
     ve.Marca,
     ve.Modelo
 FROM veiculo ve
-LEFT JOIN vistoria v
-    ON ve.Codigo_Veiculo = v.Codigo_Veiculo
+LEFT JOIN vistoria v ON ve.Codigo_Veiculo = v.Codigo_Veiculo
 WHERE v.Codigo_Vistoria IS NULL;
 
-
--- A03 - Verificar possíveis duplicidades de placa.
--- Resultado vazio é esperado enquanto Placa possuir restrição UNIQUE.
-
+-- A03: Verificação de placas duplicadas
 SELECT
     Placa,
     COUNT(*) AS Quantidade
@@ -468,41 +480,48 @@ HAVING COUNT(*) > 1;
 
 
 -- =====================================================
--- DEMONSTRAÇÃO DE UPDATE E DELETE
--- As transações são desfeitas com ROLLBACK.
--- Os registros originais são preservados.
+-- 6. EXEMPLO DE TRANSACAO
 -- =====================================================
-
--- UPDATE - Atualização demonstrativa de um cliente.
 
 START TRANSACTION;
 
 UPDATE cliente
-SET Email = 'teste@exemplo.com'
+SET Telefone = '(11) 99999-9999'
 WHERE Codigo_Cliente = 3;
 
-SELECT *
-FROM cliente
+SELECT * FROM cliente
 WHERE Codigo_Cliente = 3;
 
 ROLLBACK;
-SELECT Codigo_Cliente, Nome_Completo, Email
-FROM cliente
-WHERE Codigo_Cliente = 3;
 
+-- O ROLLBACK desfaz a alteracao demonstrativa.
 
--- DELETE - Exclusão demonstrativa de um cliente.
+-- =====================================================
+-- 7. EXEMPLO DE EXCLUSAO (DELETE)
+-- =====================================================
 
 START TRANSACTION;
 
-DELETE FROM cliente
-WHERE Codigo_Cliente = 3;
+-- Criação de um cliente temporário para demonstrar o DELETE
+INSERT INTO cliente
+    (Nome_Completo, CPF_CNPJ, Telefone, Email)
+VALUES
+    ('CLIENTE TESTE DELETE', 'TESTE-DELETE-001', NULL, NULL);
 
+-- Verificação do cliente temporário
 SELECT *
 FROM cliente
-WHERE Codigo_Cliente = 3;
+WHERE CPF_CNPJ = 'TESTE-DELETE-001';
 
-ROLLBACK;
-SELECT Codigo_Cliente, Nome_Completo, Email
+-- Exclusão do cliente temporário
+DELETE FROM cliente
+WHERE CPF_CNPJ = 'TESTE-DELETE-001';
+
+-- Verificação após a exclusão
+SELECT *
 FROM cliente
-WHERE Codigo_Cliente = 3;
+WHERE CPF_CNPJ = 'TESTE-DELETE-001';
+
+-- Desfaz as operações de demonstração
+ROLLBACK;
+
